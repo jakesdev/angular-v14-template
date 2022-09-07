@@ -1,0 +1,17 @@
+.login-wrapper {
+  display: flex;
+  flex-basis: 100%;
+  min-height: 100vh;
+  min-height: calc(var(--vh, 1vh) * 100);
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+
+  .login-card {
+    width: 400px;
+    position: relative;
+  }
+
+
+}
