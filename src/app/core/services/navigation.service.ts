@@ -1,9 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { Pages } from '../enums';
-
-
-
+import { Pages } from '../../shared/enums';
 
 @Injectable()
 export class NavigationService {

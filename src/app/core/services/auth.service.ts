@@ -7,7 +7,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { ApiService } from '.';
-import { UserProfileModel } from '../models';
+import { UserProfileModel } from '../../shared/models';
 
 
 

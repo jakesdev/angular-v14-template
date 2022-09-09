@@ -1,6 +1,6 @@
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 import { APP_INITIALIZER, Injector, NgModule } from '@angular/core';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxPermissionsModule } from 'ngx-permissions';
@@ -8,11 +8,8 @@ import { Observable } from 'rxjs';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
-import { JwtInterceptor } from './core/intercepters/jwt-interceptor';
+import { errorInterceptorProvider, jwtInterceptorProvider } from './core/interceptors';
 import { AppLoadService } from './core/services/app-load.service';
-import { AuthModule } from './pages/auth/auth.module';
-import { BlocksModule } from './ui/blocks/blocks.module';
-
 
 
 export function initializeApp(injector: Injector) {
@@ -28,22 +25,16 @@ export function initializeApp(injector: Injector) {
   ],
   imports: [
     BrowserModule,
+    CommonModule,
     BrowserAnimationsModule,
     HttpClientModule,
     AppRoutingModule,
     NgxPermissionsModule.forRoot(),
     CoreModule.forRoot(),
-    FormsModule,
-    ReactiveFormsModule,
-    AuthModule,
-    BlocksModule,
   ],
   providers: [
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: JwtInterceptor,
-      multi: true,
-    },
+    errorInterceptorProvider,
+    jwtInterceptorProvider,
     {
       provide: APP_INITIALIZER,
       useFactory: initializeApp,

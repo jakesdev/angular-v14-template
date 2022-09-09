@@ -1,8 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { Pages } from './core/enums';
-import { AuthGuard } from './core/guards';
-import { ErrorComponent } from './pages/error/error.component';
+import { PageNotFoundComponent } from './core/pages';
+import { Pages } from './shared/enums';
 
 
 const routes: Routes = [
@@ -11,27 +10,27 @@ const routes: Routes = [
     pathMatch: 'full',
     redirectTo: Pages.HOME,
   },
-  {
-    path: Pages.HOME,
-    loadChildren: () => import('./pages/home/home.module').then(m => m.HomeModule),
-    canActivate: [],
-  },
-  {
-    path: Pages.AUTH,
-    pathMatch: 'prefix',
-    loadChildren: () =>
-      import('./pages/auth/auth.module').then((m) => m.AuthModule),
-    canActivate: [],
-  },
-  {
-    path: Pages.ADMIN,
-    loadChildren: () =>
-      import('./pages/admin/admin.module').then((m) => m.AdminModule),
-    canActivate: [ AuthGuard ],
-  },
+  // {
+  //   path: Pages.HOME,
+  //   loadChildren: () => import('./modules/home/home.module').then(m => m.HomeModule),
+  //   canActivate: [],
+  // },
+  // {
+  //   path: Pages.AUTH,
+  //   pathMatch: 'prefix',
+  //   loadChildren: () =>
+  //     import('./modules/auth/auth.module').then((m) => m.AuthModule),
+  //   canActivate: [],
+  // },
+  // {
+  //   path: Pages.ADMIN,
+  //   loadChildren: () =>
+  //     import('./modules/admin/admin.module').then((m) => m.AdminModule),
+  //   canActivate: [ AuthGuard ],
+  // },
   {
     path: '**',
-    component: ErrorComponent,
+    component: PageNotFoundComponent,
   },
 ];
 
