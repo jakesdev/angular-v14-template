@@ -4,21 +4,17 @@ import { Router } from '@angular/router';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { API_URL } from '../endpoints';
-import { AppNotify } from '../utils';
-
-
-
-
+// import { AppNotify } from '../utils';
 
 @Injectable()
 export class ApiService {
   constructor(private httpClient: HttpClient, private router: Router) { }
 
-  get<T>(url: string, hideErrorMessage?: boolean): Observable<T> {
+  get<T>(url: string, showErrMessage?: boolean): Observable<T> {
     return this.httpClient
       .get<T>(`${API_URL}/${url}`)
       .pipe(
-        catchError((error) => this.handleError(error, url, hideErrorMessage))
+        catchError((error) => this.handleError(error, url, showErrMessage))
       );
   }
   getWithOptions<T>(url: string, params: {}): Observable<T> {
@@ -26,13 +22,13 @@ export class ApiService {
       .get<T>(`${API_URL}/${url}`, { params })
       .pipe(catchError((error) => this.handleError(error, url)));
   }
-  post<T>(url: string, data: any, hideErrorMessage?: boolean): Observable<T> {
+  post<T>(url: string, data: any, showErrMessage?: boolean): Observable<T> {
     console.log(data);
     return this.httpClient
       .post<T>(`${API_URL}/${url}`, data)
       .pipe(
         catchError((error) => {
-          return this.handleError(error, url, hideErrorMessage);
+          return this.handleError(error, url, showErrMessage);
         })
       );
   }
@@ -41,7 +37,7 @@ export class ApiService {
   postFile<T>(
     url: string,
     files: File[],
-    hideErrorMessage?: boolean
+    showErrMessage?: boolean
   ): Observable<HttpEvent<T>> {
     const formData: FormData = new FormData();
     for (const file of files) {
@@ -54,32 +50,32 @@ export class ApiService {
     return this.httpClient.request(uploadReq);
   }
 
-  update<T>(url: string, data: any, hideErrorMessage?: boolean): Observable<T> {
+  update<T>(url: string, data: any, showErrMessage?: boolean): Observable<T> {
     return this.httpClient
       .patch<T>(`${API_URL}/${url}`, data)
       .pipe(
-        catchError((error) => this.handleError(error, url, hideErrorMessage))
+        catchError((error) => this.handleError(error, url, showErrMessage))
       );
   }
 
   delete<T>(
     url: string,
     data?: any | null,
-    hideErrorMessage?: boolean
+    showErrMessage?: boolean
   ): Observable<T> {
     return this.httpClient
       .delete<T>(`${API_URL}/${url}`, {
         body: data,
       })
       .pipe(
-        catchError((error) => this.handleError(error, url, hideErrorMessage))
+        catchError((error) => this.handleError(error, url, showErrMessage))
       );
   }
 
   private handleError(
     response: HttpErrorResponse,
     requestUrl?: string,
-    hideErrorMessage?: boolean
+    showErrMessage?: boolean
   ) {
     //
     if (response.status === 403) {
@@ -91,8 +87,8 @@ export class ApiService {
       if (!error) {
         error = 'Internal Server Error';
       }
-      if (!hideErrorMessage) {
-        AppNotify.error(error);
+      if (showErrMessage) {
+        // AppNotify.error(error);
       }
 
       return throwError(response);
@@ -116,8 +112,8 @@ export class ApiService {
     } else {
       messageError = 'Something Bad Happened';
     }
-    if (!hideErrorMessage) {
-      AppNotify.error(messageError);
+    if (showErrMessage) {
+      // AppNotify.error(messageError);
     }
 
     // return an observable with a user-facing error message

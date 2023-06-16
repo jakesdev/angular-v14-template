@@ -129,55 +129,6 @@ export class RegexObject {
             .test(number_value);
     }
 
-    public static extractBase64Image(value: string): string[] {
-        if (!value) {
-            return null;
-        }
-
-        const base64Strings = value.match(/data:image\/([a-zA-Z+]*);base64,([^\"]*)/g);
-
-        if (base64Strings == null) {
-            return [];
-        }
-
-        const arr = [];
-        base64Strings.forEach(v => {
-            arr.push(v);
-        });
-
-        return arr;
-    }
-
-    public static replaceBase64ToCid(targetValue: string, replacedValue: string, newValue: string): string {
-        return targetValue.replace(replacedValue, newValue);
-    }
-
-    public static extractFileExtension(value: string) {
-        return /(?:\.([^.]+))?$/.exec(value)[0];
-    }
-
-    static getInlineImageUrls(value: string): string[] {
-        if (!value) {
-            return [];
-        }
-        const srcStrings = value.match(/src=\"https\:([\w\-\.\/]{1,})([\w\-]{1,})(\.\w{3,4})\"/g);
-
-        if (srcStrings == null) {
-            return [];
-        }
-
-        const arr = [];
-
-        srcStrings.forEach(v => {
-            const url = v.match(/https\:([\w\-\.\/]{1,})([\w\-]{1,})(\.\w{3,4})/g);
-            if (url != null) {
-                arr.push(url[0]);
-            }
-        });
-
-        return arr;
-    }
-
     public static isUrlValid(value: string, httpsOnly: boolean = true): boolean {
         return httpsOnly
             ? new RegExp(APP_REGEX.URL_HTTPS_ONLY_VALIDATION).test(value)
