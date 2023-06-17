@@ -1,18 +1,16 @@
 
 export class UserProfileModel {
-  id!: string;
-  firstName!: string;
-  lastName!: string;
-  userName!: string;
+  _id?: string;
   email!: string;
-  avatar!: string;
-  phone!: string;
-  userRole!: any[];
-  isActive!: boolean;
+  role!: string;
 
-  get fullName(): string {
-    return `${this.firstName} ${this.lastName}` || '';
-  }
+  isFinishedTutorial!: boolean;
+
+  userAvatarUrl?: string;
+
+  url?: string;
+
+  avatarUrl?: string;
 
   public constructor(init?: Partial<UserProfileModel>) {
     Object.assign(this, init);

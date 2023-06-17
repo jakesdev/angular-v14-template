@@ -1,0 +1,99 @@
+<div class="space-y-12"
+     *ngIf="!isStartExam">
+  <div class="border-b border-gray-900/10 pb-12">
+    <h2 class="text-base font-semibold leading-7 text-gray-900">Exam configuration</h2>
+    <p class="mt-1 text-sm leading-6 text-gray-600">Please fill the information below, we will give you a test.</p>
+    <div class="mt-4 grid grid-cols-1 gap-x-6 gap-y-4 sm:grid-cols-6">
+      <div class="sm:col-span-2">
+        <label for="question-source"
+               class="block text-sm font-medium leading-6 text-gray-900">Question Source</label>
+        <div class="mt-2">
+          <select id="question-source"
+                  name="question-source"
+                  autocomplete="question-source-name"
+                  class="block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-1 focus:ring-inset focus:ring-blue-600 sm:max-w-xs sm:text-sm sm:leading-6">
+            <option>Cambridge</option>
+            <option>AI</option>
+          </select>
+        </div>
+      </div>
+      <div class="sm:col-span-2">
+        <label for="task"
+               class="block text-sm font-medium leading-6 text-gray-900">Choose Task</label>
+        <div class="mt-2">
+          <select id="task"
+                  name="task"
+                  autocomplete="task-name"
+                  class="block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-1 focus:ring-inset focus:ring-blue-600 sm:max-w-xs sm:text-sm sm:leading-6">
+            <option>Task 1</option>
+            <option>Task 2</option>
+          </select>
+        </div>
+      </div>
+      <div class="sm:col-span-2">
+        <label for="type"
+               class="block text-sm font-medium leading-6 text-gray-900">Question Type</label>
+        <div class="mt-2">
+          <select id="type"
+                  name="type"
+                  autocomplete="type-name"
+                  class="block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-1 focus:ring-inset focus:ring-blue-600 sm:max-w-xs sm:text-sm sm:leading-6">
+            <option>Task 1</option>
+            <option>Task 2</option>
+          </select>
+        </div>
+      </div>
+
+    </div>
+    <div class="relative mt-4 flex items-start">
+      <div class="flex h-6 items-center">
+        <input id="comments"
+               aria-describedby="comments-description"
+               name="comments"
+               type="checkbox"
+               class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600">
+      </div>
+      <div class="ml-3 text-sm leading-6">
+        <label for="comments"
+               class="font-medium text-gray-900">Time Lock</label>
+        <span id="comments-description"
+              class="text-gray-500"><span class="sr-only">New comments </span> so you can apply IELTS writing strategy.</span>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="exam"
+     *ngIf="isStartExam">
+  <div>
+    Time left: 0:34
+  </div>
+  <div class="mt-4 grid grid-cols-1 gap-x-6 gap-y-4 sm:grid-cols-2">
+    <div class="w-full">
+      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Architecto consequuntur in possimus quos ad dolorem, officiis ducimus excepturi! Ipsam, officiis aut earum doloremque iste eos tenetur voluptas at voluptatum placeat. Maiores eligendi saepe quaerat dolor error recusandae impedit sed facere?
+    </div>
+    <quill-editor [modules]="quillConfig"
+                  class="quill-editor"
+                  [(ngModel)]="content"
+                  format="html"></quill-editor>
+    <div class="col-span-2 w-full flex justify-end mt-12">
+<button type="submit"
+        class="flex justify-center rounded-md bg-blue-500 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-blue-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500">Submit</button>
+
+
+    </div>
+
+  </div>
+
+</div>
+
+<div class="mt-6 flex items-center justify-end gap-x-6"
+     *ngIf="!isStartExam">
+  <button type="submit"
+          (click)="isStartExam = true"
+          class="rounded-md bg-blue-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600">Start</button>
+</div>
+
+<ng-template #examConfiguration></ng-template>
+<ng-template #task1></ng-template>
+<ng-template #task2></ng-template>
+<ng-template #textEditor></ng-template>

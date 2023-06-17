@@ -1,0 +1,73 @@
+:root {
+    --uw-color-blue-main: #0068FF;
+    --uw-color-blue-hover: #267FFF;
+    --uw-color-blue-pressed: #0058D9;
+    --uw-color-blue-dark: #0058D9;
+    //
+    --uw-color-blue-light: #E0EDFF;
+    --uw-color-blue-light-hover: #E6F1FF;
+    --uw-color-blue-light-pressed: #B3BECC;
+    //
+    --uw-color-grey-main: #F5F7F9;
+    --uw-color-grey-hover: #E6E8EA;
+    --uw-color-grey-pressed: #D2D4D5;
+    --uw-color-grey-border: #E5ECF0;
+    //
+    --uw-color-red-main: #FC5A5A;
+    --uw-color-red-hover: #FC7373;
+    --uw-color-red-pressed: #D64C4C;
+    //
+    --uw-color-green-main: #44C249;
+    --uw-color-green-hover: #60CB64;
+    --uw-color-green-pressed: #3AA53E;
+    //
+    --uw-color-black-main: #191925;
+    --uw-color-black-secondary: #8C8C92;
+    --uw-color-black-font-empty-text: rgba(25, 25, 37, 0.5);
+    --uw-card-border: rgba(25, 25, 37, 0.08);
+    --uw-button-lines: #D1D1D3;
+    --uw-separator-lines: #E8E8E9;
+    //
+    --uw-note-yellow: #FBF1D7;
+    --uw-appointment-green: #ECF9ED;
+    --uw-reminder-blue: #E5F0FF;
+    --uw-inactive-card-grey: #DDDDDE;
+    //
+    --uw-bg-main: #F3F7FC;
+    --uw-bg-brand-gradient: linear-gradient(90deg, #0169FF 0%, #01AEFF 100%);
+    --uw-bg-top-nav-selected: rgba(25, 25, 37, 0.4);
+    --uw-bg-top-nav-pressed: rgba(25, 25, 37, 0.5);
+    --uw-bg-top-nav-hover: rgba(25, 25, 37, 0.2);
+    --uw-bg-overlay-selected: rgba(25, 25, 37, 0.04);
+    --uw-bg-modal-darken: rgba(25, 25, 37, 0.8);
+    --uw-bg-tooltip: rgba(25, 25, 37, 0.9);
+    // Grid
+    --uw-grid__row__bg-color: rgba(25, 25, 37, 0.04);
+    --uw-grid__row-height: 64px;
+    --uw-grid__header-height: 80px;
+    --uw-grid__footer-height: 64px;
+    --uw-grid__page-sizes__margin-right: 72px;
+    // Pop-up
+    --uw-popup__top-nav-height: 56px;
+    --uw-popup__header-height: 64px;
+    --uw-popup__footer-height: 68px;
+    --uw-popup__content-padding: 32px 24px;
+    --uw-popup-confirmation__body-max-width: 1700px;
+    --uw-popup-confirmation__content-detail-color: #555555;
+    // Box Shadow
+    --uw-box-shadow-popup: 0px 2px 10px rgba(0, 0, 0, 0.04), 0px 6px 24px 10px rgba(0, 0, 0, 0.24);
+    --uw-box-shadow-popup-toolbar: 0px 1px 4px rgba(165, 165, 165, 0.1);
+    --uw-box-shadow-dropdown: 0px 4px 8px rgba(0, 0, 0, 0.16), 0px 0px 24px rgba(0, 0, 0, 0.05);
+    --uw-box-shadow-text-box: 0px 4px 8px rgba(0, 0, 0, 0.05);
+    --uw-box-shadow-inner: inset 0px 1px 3px rgba(0, 0, 0, 0.3);
+    --uw-box-shadow-popup-aligned-right: -10px 0px 18px rgba(0, 0, 0, 0.13);
+    --uw-box-shadow-sticky-bottom: 0px 0px 8px rgba(0, 0, 0, 0.08), -8px -8px 28px rgba(0, 0, 0, 0.08);
+    // Toast (Notification)
+    --uw-notification__information: #8C8C92;
+    --uw-notification__warning: #E9B839;
+    --uw-notification__error: #FC5A5A;
+    --uw-notification__success: #44C249;
+}
+
+:root.dark-theme {
+}

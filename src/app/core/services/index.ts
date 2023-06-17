@@ -3,3 +3,4 @@ export * from './app-info.service';
 export * from './auth.service';
 export * from './navigation.service';
 export * from './screen.service';
+export * from './svg-icons.service';
